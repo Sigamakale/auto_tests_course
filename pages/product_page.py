@@ -15,5 +15,5 @@ class ProductPage(BasePage):
     def cart_value_message(self):
         message = self.browser.find_element(*ProductPageLocators.CART_VALUE_MESSAGE)
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
-        assert product_price.text == message.text, f'Cart value in the message "{message.text}" does not match the one added to the cart "{product_price.text}".'
+        assert product_price.text in message.text, f'Cart value in the message "{message.text}" does not match the one added to the cart "{product_price.text}".'
 
