@@ -77,13 +77,13 @@ class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         link = 'http://selenium1py.pythonanywhere.com/ru/accounts/login/'
-        self.login_page = LoginPage(browser, link)
-        self.login_page.open()
+        login_page = LoginPage(browser, link)
+        login_page.open()
         fake = Faker()
         email = fake.email()
         password = fake.password()
-        self.login_page.register_new_user(email, password)
-        self.login_page.should_be_authorized_user()
+        login_page.register_new_user(email, password)
+        login_page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
         link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
